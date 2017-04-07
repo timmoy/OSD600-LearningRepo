@@ -44,3 +44,11 @@ app.get('/format/:name', (req, res) => {
 app.listen(port, () => {
   console.log('Server started on http://localhost:' + port);
 });
+
+// GET http://localhost:3000/healthcheck
+app.get('/healthcheck', (req, res) => {
+  const uptime = process.uptime();
+  res.json({
+    uptime: uptime
+  });
+});
